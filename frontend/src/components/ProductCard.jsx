@@ -126,7 +126,7 @@ const ProductCard = ({ product }) => {
                   value={updatedProduct.name}
                   onChange={(e) =>
                     setUpdatedProduct({
-                      ...updateProduct,
+                      ...updatedProduct,
                       name: e.target.value,
                     })
                   }
@@ -138,7 +138,7 @@ const ProductCard = ({ product }) => {
                   value={updatedProduct.price}
                   onChange={(e) =>
                     setUpdatedProduct({
-                      ...updateProduct,
+                      ...updatedProduct,
                       price: e.target.value,
                     })
                   }
@@ -149,7 +149,7 @@ const ProductCard = ({ product }) => {
                   value={updatedProduct.image}
                   onChange={(e) =>
                     setUpdatedProduct({
-                      ...updateProduct,
+                      ...updatedProduct,
                       image: e.target.value,
                     })
                   }
