@@ -10,18 +10,17 @@ const HomePage = () => {
     fetchProducts();
   }, [fetchProducts]);
 
-  console.log("products", products);
   return (
-    <Container maxW="container.xl" py={12}>
-      <VStack spacing={8}>
+    <Container maxW="container.xl" py={{ base: 4, sm: 12 }}>
+      <VStack spacing={{ base: 4, sm: 8 }}>
         <Text
-          fontSize={"30"}
+          fontSize={{ base: 22, sm: 30 }}
           fontWeight={"bold"}
           bgGradient={"linear(to-r, pink.500, yellow.500)"}
           bgClip={"text"}
           textAlign={"center"}
         >
-          Current Products
+          Tasty Offerings
         </Text>
 
         <SimpleGrid
@@ -30,7 +29,7 @@ const HomePage = () => {
             md: 2,
             lg: 3,
           }}
-          spacing={10}
+          spacing={{ base: 4, sm: 8 }}
           w={"full"}
         >
           {products.map((product) => (
@@ -45,9 +44,13 @@ const HomePage = () => {
             fontWeight={"bold"}
             color="gray.500"
           >
-            No products found
+            No products found{" "}
             <Link to={"/create"}>
-              <Text color="yellow.500" _hover={{ textDecoration: "underline" }}>
+              <Text
+                as={"span"}
+                color="yellow.500"
+                _hover={{ textDecoration: "underline" }}
+              >
                 Create a product
               </Text>
             </Link>

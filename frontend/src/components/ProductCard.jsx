@@ -21,6 +21,7 @@ import {
 } from "@chakra-ui/react";
 
 import { FiEdit, FiTrash } from "react-icons/fi";
+import { TbCurrencyPeso } from "react-icons/tb";
 import { useProductStore } from "../store/product";
 import { useState } from "react";
 
@@ -28,6 +29,8 @@ const ProductCard = ({ product }) => {
   const [updatedProduct, setUpdatedProduct] = useState(product);
   const textColor = useColorModeValue("gray.600", "gray.200");
   const bg = useColorModeValue("white", "gray.800");
+  const pink = useColorModeValue("pink.500", "pink.400");
+  const yellow = useColorModeValue("yellow.500", "yellow.400");
 
   const { deleteProduct, updateProduct } = useProductStore();
 
@@ -83,34 +86,39 @@ const ProductCard = ({ product }) => {
       rounded={"lg"}
       overflow={"hidden"}
       transition={"all 0.3s"}
-      _hover={{ tranmsform: "translateY(-5px)", shadow: "xl" }}
+      _hover={{ transform: "translateY(-5px)", shadow: "xl" }}
       bg={bg}
     >
       <Image
         src={product.image}
         alt={product.name}
-        h={48}
+        h={60}
         w="full"
         objectFit={"cover"}
       />
       <Box p={4}>
-        <Heading as="h3" size="md" mb={2}>
+        <Heading as="h3" fontWeight={"semibold"} size="md" mb={2} color={pink}>
           {product.name}
         </Heading>
 
-        <Text fontWeight="bold" fontSize="xl" color={textColor} mb={4}>
-          {product.price}
-        </Text>
+        <HStack mb={2} spacing={1} color={yellow} justifyContent={"space-between"}>
+          <HStack spacing={0} justifyContent="flex-start" alignItems={"center"}>
+            <TbCurrencyPeso fontSize={18}/>
+            <Text fontSize="xl" color={textColor}>
+              {product.price}
+            </Text>
+          </HStack>
 
-        <HStack spacing={2}>
-          <IconButton icon={<FiEdit />} onClick={onOpen} colorScheme="blue" />
-          <IconButton
-            icon={<FiTrash />}
-            onClick={() => {
-              handleDeleteProduct(product._id);
-            }}
-            colorScheme="red"
-          />
+          <HStack spacing={2} justifyContent="flex-end">
+            <IconButton icon={<FiEdit />} onClick={onOpen} size="sm" />
+            <IconButton
+              icon={<FiTrash />}
+              onClick={() => {
+                handleDeleteProduct(product._id);
+              }}
+              size="sm"
+            />
+          </HStack>
         </HStack>
       </Box>
       <Modal isOpen={isOpen} onClose={onClose}>

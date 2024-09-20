@@ -42,10 +42,16 @@ const CreatePage = () => {
   };
 
   return (
-    <Container maxW={"container.sm"}>
-      <VStack spacing={8}>
-        <Heading as={"h1"} size={"2xl"} textAlign={"center"} mb={8}>
-          Create New Product
+    <Container maxW={"container.sm"} py={{ base: 4, sm: 12 }}>
+      <VStack spacing={{ base: 4, sm: 8 }}>
+        <Heading
+          fontSize={{ base: 22, sm: 30 }}
+          fontWeight={"bold"}
+          bgGradient={"linear(to-r, pink.500, yellow.500)"}
+          bgClip={"text"}
+          textAlign={"center"}
+        >
+          Create Your Burger
         </Heading>
 
         <Box
@@ -80,8 +86,8 @@ const CreatePage = () => {
                 setNewProduct({ ...newProduct, image: e.target.value })
               }
             />
-            <Button colorScheme="yellow" onClick={handleAddProduct} w="full">
-              Add Product
+            <Button onClick={handleAddProduct} w="full" mt={4}>
+              Add
             </Button>
           </VStack>
         </Box>

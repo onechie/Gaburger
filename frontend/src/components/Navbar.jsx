@@ -18,7 +18,7 @@ const Navbar = () => {
         h={16}
         alignItems={"center"}
         justifyContent={"space-between"}
-        flexDir={{ base: "column", sm: "row" }}
+      
       >
         <Text
           fontSize={{ base: "22", sm: "28" }}
@@ -32,11 +32,11 @@ const Navbar = () => {
         </Text>
         <HStack spacing={2} alignItems={"center"}>
           <Link to={"/create"}>
-            <Button>
+            <Button size={"sm"}>
               <FiPlusSquare fontSize={20} />
             </Button>
           </Link>
-          <Button onClick={toggleColorMode}>
+          <Button onClick={toggleColorMode} size={"sm"}>
             {colorMode === "light" ? (
               <MdOutlineLightMode fontSize={20} />
             ) : (
